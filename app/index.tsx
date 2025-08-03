@@ -1,148 +1,120 @@
-// app/index.tsx
-import { FontAwesome5 } from "@expo/vector-icons";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-export default function Index() {
-  const signs = [
-    {
-      name: "ban",
-      label: "Dilarang Masuk",
-      caption:
-        "Rambu ini menunjukkan bahwa kendaraan tidak diperkenankan melewati jalan ini dari arah Anda datang.",
-    },
-    {
-      name: "road",
-      label: "Satu Arah",
-      caption:
-        "Digunakan untuk menandai bahwa jalan hanya dapat dilalui ke satu arah saja.",
-    },
-    {
-      name: "traffic-light",
-      label: "Lampu Lalin",
-      caption:
-        "Patuhi urutan warna: Merah untuk berhenti, Kuning untuk bersiap, dan Hijau untuk jalan.",
-    },
-    {
-      name: "walking",
-      label: "Khusus Pejalan Kaki",
-      caption:
-        "Zona ini diprioritaskan untuk orang yang berjalan kaki. Kendaraan dilarang mengganggu jalur ini.",
-    },
-    {
-      name: "bicycle",
-      label: "Jalur Sepeda",
-      caption:
-        "Lintasan ini disediakan khusus bagi pesepeda demi keselamatan dan ketertiban.",
-    },
-    {
-      name: "exclamation-triangle",
-      label: "Area Bahaya",
-      caption:
-        "Tanda peringatan agar pengendara lebih waspada terhadap kondisi jalan yang berisiko.",
-    },
-    {
-      name: "parking",
-      label: "Tempat Parkir",
-      caption:
-        "Lokasi yang secara resmi diizinkan untuk kendaraan berhenti atau parkir.",
-    },
-    {
-      name: "arrow-circle-up",
-      label: "Hanya Lurus",
-      caption:
-        "Pengemudi diwajibkan untuk terus maju dan tidak berbelok pada titik ini.",
-    },
-    {
-      name: "car",
-      label: "Mobil",
-      caption:
-        "Rambu yang menandai jalur prioritas untuk kendaraan roda empat.",
-    },
-    {
-      name: "bus",
-      label: "Jalur Bus",
-      caption: "Jalur ini hanya boleh dilalui oleh kendaraan umum seperti bus.",
-    },
-  ];
-
+export default function IconScreen() {
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Simbol Rambu Lalu Lintas</Text>
-
-      <View style={styles.grid}>
-        {signs.map((sign, index) => (
-          <View key={index} style={styles.card}>
-            <FontAwesome5 name={sign.name} size={38} color="#b22222" />
-            <Text style={styles.label}>{sign.label}</Text>
-            <Text style={styles.caption}>{sign.caption}</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Koleksi 10 Random Ikon</Text>
+      
+      {/* Container untuk tabel ikon */}
+      <View style={styles.iconTable}>
+        {/* Kolom Kiri */}
+        <View style={styles.iconColumn}>
+          <View style={styles.iconItem}>
+            <Ionicons name="camera" size={50} color="#55acee" />
+            <Text style={styles.iconLabel}>Kamera</Text>
+            <Text style={styles.iconDescription}>Untuk mengambil gambar atau video.</Text>
           </View>
-        ))}
-      </View>
+          <View style={styles.iconItem}>
+            <Ionicons name="ios-paw-outline" size={50} color="#ff69b4" />
+            <Text style={styles.iconLabel}>Tanya</Text>
+            <Text style={styles.iconDescription}>Simbol yang menanyakan sesuatu yang belum diketahui atau hal yang tidak jelas.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <FontAwesome name="rocket" size={50} color="#ff4500" />
+            <Text style={styles.iconLabel}>Roket</Text>
+            <Text style={styles.iconDescription}>Simbol untuk kecepatan atau peluncuran.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <FontAwesome name="github" size={50} color="#24292e" />
+            <Text style={styles.iconLabel}>GitHub</Text>
+            <Text style={styles.iconDescription}>Representasi platform pengembangan perangkat lunak.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <FontAwesome name="map" size={50} color="#008000" />
+            <Text style={styles.iconLabel}>Peta</Text>
+            <Text style={styles.iconDescription}>Digunakan untuk menunjukkan lokasi atau navigasi.</Text>
+          </View>
+        </View>
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          © 2025 Fauzan Azhari Rahman – 105841109622
-        </Text>
+        {/* Kolom Kanan */}
+        <View style={styles.iconColumn}>
+          <View style={styles.iconItem}>
+            <MaterialIcons name="settings" size={50} color="#808080" />
+            <Text style={styles.iconLabel}>Pengaturan</Text>
+            <Text style={styles.iconDescription}>Mengakses konfigurasi aplikasi.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <MaterialIcons name="lightbulb" size={50} color="#ffd700" />
+            <Text style={styles.iconLabel}>Bohlam</Text>
+            <Text style={styles.iconDescription}>Menunjukkan ide atau pencerahan.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <FontAwesome name="heart" size={50} color="#e63946" />
+            <Text style={styles.iconLabel}>Hati</Text>
+            <Text style={styles.iconDescription}>Digunakan untuk "suka" atau favorit.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <Ionicons name="airplane" size={50} color="#1e90ff" />
+            <Text style={styles.iconLabel}>Pesawat</Text>
+            <Text style={styles.iconDescription}>Menggambarkan perjalanan atau mode pesawat.</Text>
+          </View>
+          <View style={styles.iconItem}>
+            <Ionicons name="musical-notes" size={50} color="#8a2be2" />
+            <Text style={styles.iconLabel}>Musik</Text>
+            <Text style={styles.iconDescription}>Mengontrol pemutaran musik.</Text>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#f9f9f9",
-    padding: 16,
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f8f8f8',
+    padding: 20,
   },
   title: {
-    fontSize: 25,
-    fontWeight: "800",
-    textAlign: "center",
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 30,
+  },
+  iconTable: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  iconColumn: {
+    width: '48%', // Mengatur lebar kolom agar ada sedikit ruang di tengah
+  },
+  iconItem: {
+    alignItems: 'center',
     marginBottom: 20,
-    color: "#1a1a1a",
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  grid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  card: {
-    width: "47%",
-    backgroundColor: "#fff",
-    borderRadius: 14,
-    padding: 14,
-    marginBottom: 18,
-    alignItems: "center",
-    shadowColor: "#999",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.12,
-    shadowRadius: 3,
-    elevation: 2,
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: "600",
-    color: "#333",
+  iconLabel: {
     marginTop: 10,
-    textAlign: "center",
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
   },
-  caption: {
-    fontSize: 13,
-    color: "#555",
-    marginTop: 6,
-    textAlign: "center",
-  },
-  footer: {
-    marginTop: 32,
-    paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: "#ccc",
-    alignItems: "center",
-  },
-  footerText: {
+  iconDescription: {
+    marginTop: 5,
     fontSize: 12,
-    color: "#888",
-    textAlign: "center",
-    fontStyle: "italic",
+    textAlign: 'center',
+    color: '#666',
   },
 });
